@@ -1,6 +1,9 @@
 import 'package:ble_grapher/core/language/language.dart';
 import 'package:ble_grapher/features/device_connectivity/bloc/device_connectivity_bloc.dart';
+import 'package:ble_grapher/features/device_connectivity/widget/char_uuid_ble.dart';
 import 'package:ble_grapher/features/device_connectivity/widget/connected_device_info.dart';
+import 'package:ble_grapher/features/device_connectivity/widget/last_message_widget.dart';
+import 'package:ble_grapher/features/device_connectivity/widget/send_data_button_widget.dart';
 import 'package:ble_grapher/features/graph/widget/data_xaxis_limit_slider_widget.dart';
 import 'package:ble_grapher/features/graph/widget/graph_size_adjuster_widget.dart';
 import 'package:ble_grapher/pages/chat.dart';
@@ -64,7 +67,8 @@ class _HomePageState extends State<HomePage> {
                     title: const Text("Chat"),
                     subtitle: const Text("Chat with device"),
                     trailing: const Icon(Icons.arrow_forward_ios),
-                  )
+                  ),
+                  const CharBleUUIDWidget()
                 ],
               ),
             ),
@@ -74,7 +78,9 @@ class _HomePageState extends State<HomePage> {
               ConnectedDeviceInfoWidget(),
               GraphPage(),
               XAxisDataSliderWidget(),
-              GraphSizeAdjustmentWidget()
+              GraphSizeAdjustmentWidget(),
+              LastMessageWidget(),
+              MessageSendWidget()
             ],
           ),
         ));
